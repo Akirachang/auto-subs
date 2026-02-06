@@ -31,7 +31,7 @@ export const DEFAULT_SETTINGS: Settings = {
   maxLinesPerSubtitle: 1,
   splitOnPunctuation: true,
   textCase: "none",
-  removePunctuation: false,
+  removePunctuation: [],
   enableCensor: false,
   censoredWords: [],
 
@@ -72,6 +72,13 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
       const hydratedSettings = storedSettings
         ? ({ ...DEFAULT_SETTINGS, ...storedSettings, uiLanguage: normalizeUiLanguage(storedSettings.uiLanguage) } as Settings)
         : DEFAULT_SETTINGS;
+
+      // Migration: convert old boolean removePunctuation to string[]
+      if (typeof (hydratedSettings as any).removePunctuation === 'boolean') {
+        hydratedSettings.removePunctuation = (hydratedSettings as any).removePunctuation
+          ? ['periods', 'commas', 'questionMarks', 'exclamationMarks', 'semicolons', 'colons', 'quotes', 'hyphens', 'other']
+          : [];
+      }
 
       initI18n(hydratedSettings.uiLanguage);
       setSettings(hydratedSettings);

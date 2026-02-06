@@ -65,7 +65,18 @@
     "format": {
       "button": "Format",
       "removePunctuationTitle": "Remove Punctuation",
-      "removePunctuationDescription": "Removes commas, periods, etc.",
+      "removePunctuationDescription": "Choose which punctuation to remove",
+      "punctuation": {
+        "periods": "Periods (.)",
+        "commas": "Commas (,)",
+        "questionMarks": "Question marks (?)",
+        "exclamationMarks": "Exclamation marks (!)",
+        "semicolons": "Semicolons (;)",
+        "colons": "Colons (:)",
+        "quotes": "Quotes (\"')",
+        "hyphens": "Hyphens & dashes (-)",
+        "other": "Other"
+      },
       "textCaseTitle": "Text Case",
       "textCaseDescription": "Modify subtitle case",
       "textCase": {

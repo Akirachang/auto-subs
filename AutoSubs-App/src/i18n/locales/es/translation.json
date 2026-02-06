@@ -65,7 +65,18 @@
     "format": {
       "button": "Formato",
       "removePunctuationTitle": "Quitar puntuación",
-      "removePunctuationDescription": "Elimina comas, puntos, etc.",
+      "removePunctuationDescription": "Elige qué puntuación eliminar",
+      "punctuation": {
+        "periods": "Puntos (.)",
+        "commas": "Comas (,)",
+        "questionMarks": "Interrogaciones (?)",
+        "exclamationMarks": "Exclamaciones (!)",
+        "semicolons": "Punto y coma (;)",
+        "colons": "Dos puntos (:)",
+        "quotes": "Comillas (\"')",
+        "hyphens": "Guiones (-)",
+        "other": "Otros"
+      },
       "textCaseTitle": "Mayúsculas/minúsculas",
       "textCaseDescription": "Modifica el estilo del texto",
       "textCase": {

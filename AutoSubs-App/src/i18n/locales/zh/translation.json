@@ -65,7 +65,18 @@
     "format": {
       "button": "格式",
       "removePunctuationTitle": "移除标点符号",
-      "removePunctuationDescription": "移除逗号、句号等。",
+      "removePunctuationDescription": "选择要移除的标点符号",
+      "punctuation": {
+        "periods": "句号 (.)",
+        "commas": "逗号 (,)",
+        "questionMarks": "问号 (?)",
+        "exclamationMarks": "感叹号 (!)",
+        "semicolons": "分号 (;)",
+        "colons": "冒号 (:)",
+        "quotes": "引号 (\"')",
+        "hyphens": "连字符 (-)",
+        "other": "其他"
+      },
       "textCaseTitle": "文本大小写",
       "textCaseDescription": "修改字幕大小写",
       "textCase": {

@@ -111,7 +111,7 @@ export interface Settings {
     maxLinesPerSubtitle: number,
     splitOnPunctuation: boolean,
     textCase: "none" | "uppercase" | "lowercase" | "titlecase";
-    removePunctuation: boolean,
+    removePunctuation: string[],
     enableCensor: boolean,
     censoredWords: Array<string>,
 

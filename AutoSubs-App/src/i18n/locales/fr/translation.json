@@ -65,7 +65,18 @@
     "format": {
       "button": "Format",
       "removePunctuationTitle": "Supprimer la ponctuation",
-      "removePunctuationDescription": "Supprime les virgules, points, etc.",
+      "removePunctuationDescription": "Choisir quelle ponctuation supprimer",
+      "punctuation": {
+        "periods": "Points (.)",
+        "commas": "Virgules (,)",
+        "questionMarks": "Points d'interrogation (?)",
+        "exclamationMarks": "Points d'exclamation (!)",
+        "semicolons": "Points-virgules (;)",
+        "colons": "Deux-points (:)",
+        "quotes": "Guillemets (\"')",
+        "hyphens": "Tirets (-)",
+        "other": "Autres"
+      },
       "textCaseTitle": "Casse du texte",
       "textCaseDescription": "Modifier la casse des sous-titres",
       "textCase": {

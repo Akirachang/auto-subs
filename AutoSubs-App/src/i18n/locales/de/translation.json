@@ -65,7 +65,18 @@
     "format": {
       "button": "Format",
       "removePunctuationTitle": "Interpunktion entfernen",
-      "removePunctuationDescription": "Entfernt Kommas, Punkte usw.",
+      "removePunctuationDescription": "Wählen Sie, welche Interpunktion entfernt wird",
+      "punctuation": {
+        "periods": "Punkte (.)",
+        "commas": "Kommas (,)",
+        "questionMarks": "Fragezeichen (?)",
+        "exclamationMarks": "Ausrufezeichen (!)",
+        "semicolons": "Semikolons (;)",
+        "colons": "Doppelpunkte (:)",
+        "quotes": "Anführungszeichen (\"')",
+        "hyphens": "Bindestriche (-)",
+        "other": "Sonstige"
+      },
       "textCaseTitle": "Groß-/Kleinschreibung",
       "textCaseDescription": "Untertitel-Schreibweise ändern",
       "textCase": {

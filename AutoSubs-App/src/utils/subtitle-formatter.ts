@@ -2,6 +2,21 @@ import { Subtitle, Word } from "@/types/interfaces";
 
 const PUNCTUATION_REGEX = /[\p{P}$+<=>^`|~]/gu;
 
+// Mapping from punctuation category keys to regex patterns
+const PUNCTUATION_CATEGORIES: Record<string, RegExp> = {
+    periods: /\./g,
+    commas: /,/g,
+    questionMarks: /\?/g,
+    exclamationMarks: /!/g,
+    semicolons: /;/g,
+    colons: /:/g,
+    quotes: /["'\u2018\u2019\u201C\u201D\u00AB\u00BB]/gu,
+    hyphens: /[-\u2013\u2014]/gu,
+    other: /(?![.,?!;:\-\u2013\u2014"'\u2018\u2019\u201C\u201D\u00AB\u00BB])[\p{P}$+<=>^`|~]/gu,
+};
+
+export const ALL_PUNCTUATION_KEYS = Object.keys(PUNCTUATION_CATEGORIES);
+
 /**
  * Helper to join a words array into a normalized text string.
  */
@@ -32,8 +47,15 @@ function applyCaseToWord(word: string, mode: 'lowercase' | 'uppercase' | 'titlec
     return word;
 }
 
-function removePunctuationFromWord(word: string): string {
-    return word.replace(PUNCTUATION_REGEX, "");
+function removePunctuationFromWord(word: string, categories: string[]): string {
+    let result = word;
+    for (const category of categories) {
+        const regex = PUNCTUATION_CATEGORIES[category];
+        if (regex) {
+            result = result.replace(regex, "");
+        }
+    }
+    return result;
 }
 
 function hasCensoredWord(word: string, censoredSet: Set<string>): boolean {
@@ -73,14 +95,14 @@ export function applyTextFormattingToSubtitle(
     subtitle: Subtitle,
     options: {
         case: 'lowercase' | 'uppercase' | 'titlecase' | 'none';
-        removePunctuation: boolean;
+        removePunctuation: string[];
         censoredWords: string[];
     }
 ): Subtitle {
     const censorWord = createCensorWord(options.censoredWords);
     const result = subtitle.words.map(wordObj => {
         let w = censorWord(wordObj.word);
-        if (options.removePunctuation) w = removePunctuationFromWord(w);
+        if (options.removePunctuation.length > 0) w = removePunctuationFromWord(w, options.removePunctuation);
         w = applyCaseToWord(w, options.case);
         return { ...wordObj, word: w };
     });
@@ -170,7 +192,7 @@ export function splitAndFormatSubtitles(
     subtitles: Subtitle[],
     options: {
         case: 'none' | 'lowercase' | 'uppercase' | 'titlecase';
-        removePunctuation: boolean;
+        removePunctuation: string[];
         splitOnPunctuation: boolean;
         censoredWords: string[];
         maxLinesPerSubtitle: number;

@@ -78,7 +78,7 @@ export async function saveTranscript(
   filename: string,
   formatOptions?: {
     case: 'lowercase' | 'uppercase' | 'none' | 'titlecase';
-    removePunctuation: boolean;
+    removePunctuation: string[];
     splitOnPunctuation: boolean;
     censoredWords: string[];
     maxCharsPerLine: number;
